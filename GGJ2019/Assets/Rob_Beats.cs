@@ -32,74 +32,72 @@ public class Rob_Beats : MonoBehaviour {
 
         points = good_points;
 
-      
-
-        if (Input.GetKeyDown("left") && hit_L == true && good_hit_L == false)
-        {
-            points = points + 50;
-            score.text = ("score: " + points);
-            hit_L = false;
-            Destroy(cull);
-            //points = points + 100;
-            Debug.Log(points);
-            
-        }
-
-         if (Input.GetKeyDown("left") && hit_L == false && good_hit_L == false)
-        {
-            Debug.Log("NO");
-          
-            hit_R = false;
-            hit = false;
-            Destroy(cull);
-           
-        }
-
-        if (Input.GetKeyDown("right") && hit_R == true && good_hit_R == false)
-        {
-            points = points + 50;
-            score.text = ("score: " + points);
-            hit_R = false;
-            Destroy(cull);
-           
-            //points = points + 100;
-            Debug.Log(points);
-            
-        }
-
-        if (Input.GetKeyDown("right") && hit_R == false && good_hit_R == false)
-        {
-            Debug.Log("NO");
-            score.text = ("score: " + points);
-            hit_L = false;
-            hit = false;
-            Destroy(cull);
-           
-
-        }
-
         if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == true && good_hit == false)
         {
             points = points + 100;
             score.text = ("score: " + points);
             hit = false;
             Destroy(cull);
-            //points = points + 100;
+            Debug.Log(points);
+
+        }
+
+        if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == false)
+        {
+            Debug.Log("NO");
+
+            hit_L = false;
+            hit_R = false;
+            Destroy(cull);
+
+
+        }
+
+        if (Input.GetKeyDown("left")  && hit_L == true && good_hit_L == false)
+        {
+            points = points + 50;
+            score.text = ("score: " + points);
+            hit_L = false;
+            Destroy(cull);
+            
             Debug.Log(points);
             
         }
 
-        if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == false && good_hit == false)
+         if (Input.GetKeyDown("left") && hit_L == false)
         {
             Debug.Log("NO");
-            points = points + 100;
+          
+            hit_R = false;
+            
+            Destroy(cull);
+           
+        }
+
+        if (Input.GetKeyDown("right")  && hit_R == true && good_hit_R == false)
+        {
+            points = points + 50;
             score.text = ("score: " + points);
-            hit_L = false;
             hit_R = false;
             Destroy(cull);
-            //points = points + 100;
+           
+            
+            Debug.Log(points);
             
         }
+
+        if (Input.GetKeyDown("right") && hit_R == false)
+        {
+            Debug.Log("NO");
+            score.text = ("score: " + points);
+            hit_L = false;
+           
+            Destroy(cull);
+           
+
+        }
+
+        
 
 
     }

@@ -32,12 +32,30 @@ public class Rob_good_beat : MonoBehaviour {
         ok_points = ok.points;
         points = ok.points;
 
-        if (Input.GetKeyDown("left") && hit_L == true)
+        if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == true)
+        {
+            points = points + 100;
+            score.text = ("score: " + points);
+            Destroy(cull);
+            
+            Debug.Log(points);
+            hit = false;
+        }
+
+        else if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == false)
+        {
+
+            Destroy(cull);
+            hit_L = false;
+            hit_R = false;
+        }
+
+        if (Input.GetKeyDown("left")  && hit_L == true)
         {
             points = points + 50;
             score.text = ("score: " + points);
             Destroy(cull);
-            //points = points + 100;
+           
             Debug.Log(points);
             hit_L = false;
         }
@@ -46,15 +64,15 @@ public class Rob_good_beat : MonoBehaviour {
         {
             Destroy(cull);
             hit_R = false;
-            hit = false;
+           
         }
 
-        if (Input.GetKeyDown("right") && hit_R == true)
+        if (Input.GetKeyDown("right")  && hit_R == true)
         {
             points = points + 50;
             score.text = ("score: " + points);
             Destroy(cull);
-            //points = points + 100;
+            
             Debug.Log(points);
             hit_R = false;
         }
@@ -63,27 +81,11 @@ public class Rob_good_beat : MonoBehaviour {
         {
             Destroy(cull);
             hit_L = false;
-            hit = false;
+            
         }
 
 
-        if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == true)
-        {
-            points = points + 100;
-            score.text = ("score: " + points);
-            Destroy(cull);
-            //points = points + 100;
-            Debug.Log(points);
-            hit = false;
-        }
-
-        if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == false)
-        {
- 
-            Destroy(cull);
-            hit_L = false;
-            hit_R = false;
-        }
+        
 
 
     }

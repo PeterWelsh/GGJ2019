@@ -34,7 +34,7 @@ public class Rob_good_beat : MonoBehaviour {
 
         if (Input.GetKeyDown("left") && hit_L == true)
         {
-            points = points + 100;
+            points = points + 50;
             score.text = ("score: " + points);
             Destroy(cull);
             //points = points + 100;
@@ -42,15 +42,30 @@ public class Rob_good_beat : MonoBehaviour {
             hit_L = false;
         }
 
+        else if(Input.GetKeyDown("left") && hit_L == false)
+        {
+            Destroy(cull);
+            hit_R = false;
+            hit = false;
+        }
+
         if (Input.GetKeyDown("right") && hit_R == true)
         {
-            points = points + 100;
+            points = points + 50;
             score.text = ("score: " + points);
             Destroy(cull);
             //points = points + 100;
             Debug.Log(points);
             hit_R = false;
         }
+
+        else if (Input.GetKeyDown("right") && hit_R == false)
+        {
+            Destroy(cull);
+            hit_L = false;
+            hit = false;
+        }
+
 
         if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == true)
         {
@@ -62,26 +77,38 @@ public class Rob_good_beat : MonoBehaviour {
             hit = false;
         }
 
+        if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == false)
+        {
+ 
+            Destroy(cull);
+            hit_L = false;
+            hit_R = false;
+        }
+
+
     }
 
     private void OnTriggerEnter(Collider collision)
     {
 
-        cull = collision.gameObject;
+       
         if (collision.gameObject.tag == "Note_L")
         {
             hit_L = true;
             Debug.Log(points);
+            cull = collision.gameObject;
         }
         if (collision.gameObject.tag == "Note_R")
         {
             hit_R = true;
             Debug.Log(points);
+            cull = collision.gameObject;
         }
         if (collision.gameObject.tag == "Note")
         {
             hit = true;
             Debug.Log(points);
+            cull = collision.gameObject;
         }
     }
 
@@ -90,14 +117,17 @@ public class Rob_good_beat : MonoBehaviour {
         if (collision.gameObject.tag == "Note_L")
         {
             hit_L = false;
+          
         }
         if (collision.gameObject.tag == "Note_R")
         {
             hit_R = false;
+            
         }
         if (collision.gameObject.tag == "Note")
         {
             hit = false;
+            
         }
     }
 }

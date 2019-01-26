@@ -7,18 +7,30 @@ public class PlayerController : MonoBehaviour
     public GameObject leftPaw;
     public GameObject rightPaw;
 
+    //public GameObject hoose;
+
     SpriteRenderer leftRend;
     SpriteRenderer rightRend;
 
     Vector4 pawColour;
 
+    Animator hooseAnim;
+    Animator leftPawAnim;
+    Animator rightPawAnim;
+
+    //public bool leftSlap = false;
+
     // Use this for initialization
     void Start()
     {
         leftRend = leftPaw.GetComponent<SpriteRenderer>();
-        rightRend = rightPaw.GetComponent<SpriteRenderer>();
+       // rightRend = rightPaw.GetComponent<SpriteRenderer>();
 
         pawColour = leftRend.color;
+
+        //hooseAnim = hoose.GetComponent<Animator>();
+        leftPawAnim = leftPaw.GetComponent<Animator>();
+        rightPawAnim = rightPaw.GetComponent<Animator>();
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
@@ -26,37 +38,31 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown("left"))
         {
-            Debug.Log("Left Key Down");
-            leftRend.color = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
-            rightRend.color = pawColour;
+            leftPawAnim.SetBool("Slapping", true);
         }
         else if (Input.GetKeyUp("left"))
         {
-            leftRend.color = pawColour;
+            leftPawAnim.SetBool("Slapping", false);
         }
-
 
         if (Input.GetKeyDown("right"))
         {
-            Debug.Log("Right Key Down");
-            rightRend.color = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
-            leftRend.color = pawColour;
+            rightPawAnim.SetBool("Slapping", true);
         }
         else if (Input.GetKeyUp("right"))
         {
-            rightRend.color = pawColour;
+            rightPawAnim.SetBool("Slapping", false);
         }
 
         if (Input.GetKeyDown("left") && Input.GetKeyDown("right"))
         {
-            Debug.Log("Both Keys Down");
-            leftRend.color = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
-            rightRend.color = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+            rightPawAnim.SetBool("Slapping", true);
+            leftPawAnim.SetBool("Slapping", true);
         }
         else if (Input.GetKeyUp("left") && Input.GetKeyUp("right"))
         {
-            rightRend.color = pawColour;
-            leftRend.color = pawColour;
+            rightPawAnim.SetBool("Slapping", false);
+            leftPawAnim.SetBool("Slapping", false);
         }
     }
 }

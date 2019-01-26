@@ -7,32 +7,56 @@ public class PlayerController : MonoBehaviour
     public GameObject leftPaw;
     public GameObject rightPaw;
 
+    SpriteRenderer leftRend;
+    SpriteRenderer rightRend;
+
+    Vector4 pawColour;
+
     // Use this for initialization
     void Start()
     {
+        leftRend = leftPaw.GetComponent<SpriteRenderer>();
+        rightRend = rightPaw.GetComponent<SpriteRenderer>();
 
+        pawColour = leftRend.color;
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
     void FixedUpdate()
     {
-        //Store the current horizontal input in the float moveHorizontal.
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        //Debug.Log(moveHorizontal);
+        if (Input.GetKeyDown("left"))
+        {
+            Debug.Log("Left Key Down");
+            leftRend.color = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+            rightRend.color = pawColour;
+        }
+        else if (Input.GetKeyUp("left"))
+        {
+            leftRend.color = pawColour;
+        }
 
-        //If left pressed
-        if (moveHorizontal < 0.0f)
+
+        if (Input.GetKeyDown("right"))
         {
-            Debug.Log("Left");
+            Debug.Log("Right Key Down");
+            rightRend.color = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+            leftRend.color = pawColour;
         }
-        // If right pressed
-        else if (moveHorizontal > 0.0f)
+        else if (Input.GetKeyUp("right"))
         {
-            Debug.Log("Right");
+            rightRend.color = pawColour;
         }
-        else if(moveHorizontal == 0.0f)
+
+        if (Input.GetKeyDown("left") && Input.GetKeyDown("right"))
         {
-            Debug.Log("Neutral");
+            Debug.Log("Both Keys Down");
+            leftRend.color = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+            rightRend.color = new Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+        }
+        else if (Input.GetKeyUp("left") && Input.GetKeyUp("right"))
+        {
+            rightRend.color = pawColour;
+            leftRend.color = pawColour;
         }
     }
 }

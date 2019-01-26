@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Rob_Beats : MonoBehaviour {
+public class Rob_good_beat : MonoBehaviour {
 
     public int points;
     bool down;
@@ -12,29 +12,27 @@ public class Rob_Beats : MonoBehaviour {
     public bool hit;
     public int type;
     public Text score;
+    int ok_points;
+    Rob_Beats ok;
     GameObject cull;
+
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         
+       
+
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
+        GameObject go = GameObject.Find("Hit_marker");
+        ok = go.GetComponent<Rob_Beats>();
+        ok_points = ok.points;
+        points = ok.points;
 
-        GameObject go = GameObject.Find("Hit_marker(1)");
-        Rob_good_beat good = go.GetComponent<Rob_good_beat>();
-        int good_points = good.points;
-        bool good_hit = good.hit;
-        bool good_hit_L = good.hit_L;
-        bool good_hit_R = good.hit_R;
-
-        points = good_points;
-
-      
-
-        if (Input.GetKeyDown("left") && hit_L == true && good_hit_L == false)
+        if (Input.GetKeyDown("left") && hit_L == true)
         {
             points = points + 100;
             score.text = ("score: " + points);
@@ -44,7 +42,7 @@ public class Rob_Beats : MonoBehaviour {
             hit_L = false;
         }
 
-        if (Input.GetKeyDown("right") && hit_R == true && good_hit_R == false)
+        if (Input.GetKeyDown("right") && hit_R == true)
         {
             points = points + 100;
             score.text = ("score: " + points);
@@ -54,16 +52,15 @@ public class Rob_Beats : MonoBehaviour {
             hit_R = false;
         }
 
-        if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == true && good_hit == false)
+        if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == true)
         {
-            points = points + 200;
+            points = points + 100;
             score.text = ("score: " + points);
             Destroy(cull);
             //points = points + 100;
             Debug.Log(points);
             hit = false;
         }
-
 
     }
 

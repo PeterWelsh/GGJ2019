@@ -7,6 +7,8 @@ TagManager:
   - Note
   - Good
   - Ok
+  - Note_L
+  - Note_R
   layers:
   - Default
   - TransparentFX

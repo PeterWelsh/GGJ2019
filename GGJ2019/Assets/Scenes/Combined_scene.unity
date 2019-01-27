@@ -1292,6 +1292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftPaw: {fileID: 1238911093}
   rightPaw: {fileID: 663138362}
+  house: {fileID: 0}
 --- !u!4 &701453871
 Transform:
   m_ObjectHideFlags: 0
@@ -2286,17 +2287,17 @@ Prefab:
     - target: {fileID: 224235439889012802, guid: bcd313e4f9c0c11488d0bde40db4285b,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -52.5
+      value: -22.4
       objectReference: {fileID: 0}
     - target: {fileID: 224235439889012802, guid: bcd313e4f9c0c11488d0bde40db4285b,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 37.899994
+      value: 37.9
       objectReference: {fileID: 0}
     - target: {fileID: 224235439889012802, guid: bcd313e4f9c0c11488d0bde40db4285b,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 621.2
+      value: 514.8
       objectReference: {fileID: 0}
     - target: {fileID: 224235439889012802, guid: bcd313e4f9c0c11488d0bde40db4285b,
         type: 2}
@@ -2316,17 +2317,22 @@ Prefab:
     - target: {fileID: 114385514660532500, guid: bcd313e4f9c0c11488d0bde40db4285b,
         type: 2}
       propertyPath: m_Text
-      value: Score:0
+      value: Score:0 Combo:0
       objectReference: {fileID: 0}
     - target: {fileID: 114385514660532500, guid: bcd313e4f9c0c11488d0bde40db4285b,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 25
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 114385514660532500, guid: bcd313e4f9c0c11488d0bde40db4285b,
         type: 2}
       propertyPath: m_FontData.m_MinSize
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224235439889012802, guid: bcd313e4f9c0c11488d0bde40db4285b,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 205.38
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bcd313e4f9c0c11488d0bde40db4285b, type: 2}
@@ -2482,7 +2488,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1536970160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.752, y: -0.7783122, z: 0.076171875}
+  m_LocalPosition: {x: 6.752, y: -0.76, z: 0.076171875}
   m_LocalScale: {x: 3.7289107, y: 17.737322, z: 5}
   m_Children: []
   m_Father: {fileID: 338992030}
@@ -2842,7 +2848,7 @@ GameObject:
   - component: {fileID: 1730040289}
   m_Layer: 0
   m_Name: Note (26)
-  m_TagString: Note
+  m_TagString: Note_R
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

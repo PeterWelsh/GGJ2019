@@ -13,6 +13,7 @@ public class Rob_Beats : MonoBehaviour {
     public int type;
     public Text score;
     GameObject cull;
+    int combo;
     // Use this for initialization
     void Start ()
     {
@@ -34,16 +35,18 @@ public class Rob_Beats : MonoBehaviour {
 
         if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == true && good_hit == false)
         {
-            points = points + 100;
-            score.text = ("score: " + points);
+            points = points + 100 + (2*combo);
+            combo = combo + 1;
+            score.text = ("score: " + points + " Combo: " + combo);
             hit = false;
             Destroy(cull);
-            Debug.Log(points);
+            Debug.Log(combo);
 
         }
 
-        if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == false)
+      else  if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == false)
         {
+            combo = 0;
             Debug.Log("NO");
 
             hit_L = false;
@@ -53,20 +56,22 @@ public class Rob_Beats : MonoBehaviour {
 
         }
 
-        if (Input.GetKeyDown("left")  && hit_L == true && good_hit_L == false)
+       else  if (Input.GetKeyDown("left")  && hit_L == true && good_hit_L == false)
         {
-            points = points + 50;
-            score.text = ("score: " + points);
+            points = points + 50 + (2 * combo); 
+            combo = combo + 1;
+            score.text = ("score: " + points + " Combo: " + combo);
             hit_L = false;
             Destroy(cull);
             
-            Debug.Log(points);
+            Debug.Log(combo);
             
         }
 
-         if (Input.GetKeyDown("left") && hit_L == false)
+       else  if (Input.GetKeyDown("left") && hit_L == false)
         {
-            Debug.Log("NO");
+            combo = 0;
+            Debug.Log("cat");
           
             hit_R = false;
             
@@ -74,22 +79,24 @@ public class Rob_Beats : MonoBehaviour {
            
         }
 
-        if (Input.GetKeyDown("right")  && hit_R == true && good_hit_R == false)
+       else  if (Input.GetKeyDown("right")  && hit_R == true && good_hit_R == false)
         {
-            points = points + 50;
-            score.text = ("score: " + points);
+            points = points + 50 + (2 * combo); 
+            combo = combo + 1;
+            score.text = ("score: " + points + " Combo: " + combo);
             hit_R = false;
             Destroy(cull);
            
             
-            Debug.Log(points);
+            Debug.Log(combo);
             
         }
 
-        if (Input.GetKeyDown("right") && hit_R == false)
+       else if (Input.GetKeyDown("right") && hit_R == false)
         {
-            Debug.Log("NO");
-            score.text = ("score: " + points);
+            combo = 0;
+            Debug.Log("dog");
+            score.text = ("score: " + points + " Combo: " + combo);
             hit_L = false;
            
             Destroy(cull);
@@ -130,23 +137,26 @@ public class Rob_Beats : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Note_L")
         {
+            combo = 0;
             points = points - 3;
             Destroy(cull);
-            score.text = ("score: " + points);
+            score.text = ("score: " + points + " Combo: " + combo);
             hit_L = false;
         }
         if (collision.gameObject.tag == "Note_R")
         {
+            combo = 0;
             points = points - 3;
             Destroy(cull);
-            score.text = ("score: " + points);
+            score.text = ("score: " + points + " Combo: " + combo);
             hit_R = false;
         }
         if (collision.gameObject.tag == "Note")
         {
+            combo = 0;
             points = points - 2;
             Destroy(cull);
-            score.text = ("score: " + points);
+            score.text = ("score: " + points + " Combo: " + combo);
             hit = false;
         }
     }

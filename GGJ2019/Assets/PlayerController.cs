@@ -7,27 +7,25 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject leftPaw;
     public GameObject rightPaw;
+    public Animator controls;
 
     public GameObject house;
 
     SpriteRenderer leftRend;
     SpriteRenderer rightRend;
-
-    Vector4 pawColour;
     
     Animator leftPawAnim;
     Animator rightPawAnim;
     Animator houseAnim;
 
     int score;
+    bool started = false;
 
     // Use this for initialization
     void Start()
     {
         leftRend = leftPaw.GetComponent<SpriteRenderer>();
        // rightRend = rightPaw.GetComponent<SpriteRenderer>();
-
-        pawColour = leftRend.color;
         
         leftPawAnim = leftPaw.GetComponent<Animator>();
         rightPawAnim = rightPaw.GetComponent<Animator>();
@@ -63,8 +61,16 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown("left") && Input.GetKeyDown("right"))
         {
-            rightPawAnim.SetBool("Slapping", true);
-            leftPawAnim.SetBool("Slapping", true);
+            if(started == false)
+            {
+                started = true;
+                controls.SetTrigger("Started");
+            }
+            else
+            {
+                rightPawAnim.SetBool("Slapping", true);
+                leftPawAnim.SetBool("Slapping", true);
+            }
         }
         else if (Input.GetKeyUp("left") && Input.GetKeyUp("right"))
         {

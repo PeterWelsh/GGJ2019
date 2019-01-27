@@ -42,7 +42,7 @@ public class Rob_good_beat : MonoBehaviour {
             hit = false;
         }
 
-        if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == false)
+        else if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == false)
         {
 
             Destroy(cull);
@@ -50,7 +50,7 @@ public class Rob_good_beat : MonoBehaviour {
             hit_R = false;
         }
 
-        if (Input.GetKeyDown("left") && hit_L == true)
+        if (Input.GetKeyDown("left")  && hit_L == true)
         {
             points = points + 50;
             score.text = ("score: " + points);
@@ -64,10 +64,10 @@ public class Rob_good_beat : MonoBehaviour {
         {
             Destroy(cull);
             hit_R = false;
-            
+           
         }
 
-        if (Input.GetKeyDown("right") && hit_R == true)
+        if (Input.GetKeyDown("right")  && hit_R == true)
         {
             points = points + 50;
             score.text = ("score: " + points);

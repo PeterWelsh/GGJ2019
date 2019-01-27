@@ -42,39 +42,39 @@ public class Rob_Beats : MonoBehaviour {
 
         }
 
-        if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == false && good_hit == false)
+        if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == false)
         {
             Debug.Log("NO");
-            
+
             hit_L = false;
             hit_R = false;
             Destroy(cull);
-            
+
 
         }
 
-        if (Input.GetKeyDown("left") && hit_L == true && good_hit_L == false)
+        if (Input.GetKeyDown("left")  && hit_L == true && good_hit_L == false)
         {
             points = points + 50;
             score.text = ("score: " + points);
             hit_L = false;
             Destroy(cull);
-           
+            
             Debug.Log(points);
             
         }
 
-         if (Input.GetKeyDown("left") && hit_L == false && good_hit_L == false)
+         if (Input.GetKeyDown("left") && hit_L == false)
         {
             Debug.Log("NO");
           
             hit_R = false;
-           
+            
             Destroy(cull);
            
         }
 
-        if (Input.GetKeyDown("right") && hit_R == true && good_hit_R == false)
+        if (Input.GetKeyDown("right")  && hit_R == true && good_hit_R == false)
         {
             points = points + 50;
             score.text = ("score: " + points);
@@ -86,18 +86,18 @@ public class Rob_Beats : MonoBehaviour {
             
         }
 
-        if (Input.GetKeyDown("right") && hit_R == false && good_hit_R == false)
+        if (Input.GetKeyDown("right") && hit_R == false)
         {
             Debug.Log("NO");
             score.text = ("score: " + points);
             hit_L = false;
-            hit = false;
+           
             Destroy(cull);
            
 
         }
 
-       
+        
 
 
     }

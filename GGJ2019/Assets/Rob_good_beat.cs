@@ -35,7 +35,7 @@ public class Rob_good_beat : MonoBehaviour {
         if (Input.GetKeyDown("left") && Input.GetKeyDown("right") && hit == true)
         {
             points = points + 100;
-            score.text = ("score: " + points);
+            //score.text = ("score: " + points);
             Destroy(cull);
             
             Debug.Log(points);
@@ -53,7 +53,7 @@ public class Rob_good_beat : MonoBehaviour {
         if (Input.GetKeyDown("left")  && hit_L == true)
         {
             points = points + 50;
-            score.text = ("score: " + points);
+           // score.text = ("score: " + points);
             Destroy(cull);
            
             Debug.Log(points);
@@ -70,7 +70,7 @@ public class Rob_good_beat : MonoBehaviour {
         if (Input.GetKeyDown("right")  && hit_R == true)
         {
             points = points + 50;
-            score.text = ("score: " + points);
+           // score.text = ("score: " + points);
             Destroy(cull);
             
             Debug.Log(points);
